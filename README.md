@@ -1,23 +1,23 @@
 # FTPClient
-Grading Rubrics
-Feature	Point
-Command socket setup	2
-Connect to remote FTP server	2
-User authentication	3
-Handling of single line response messages	3
-Handling of multiline response messages	4
-Handling of preliminary and secondary responses	4
-Data socket setup & port selection	3
-Data Socket cleanup	2
-Use of multiple threads	4
-Remote directory listing (ls)	3
-Changing remote directory (cwd)	2
-Downloading files (get)	5
-Uploading files (put)	5
-Disconnect from server (close)	2
-Disconnect & exit program (quit)	2
-Error handling: incorrect user authentication	2
-Error handling: unknown FTP server	2
-Error handling: downloading non-existing remote file	2
-Error handling: uploading non-existing local file	2
-Penalty for program crashed/runtime errors	max -5
+| Feature                                           | Points |
+|--------------------------------------------------|--------|
+| Command socket setup                             | 2      |
+| Connect to remote FTP server                     | 2      |
+| User authentication                              | 3      |
+| Handling of single line response messages        | 3      |
+| Handling of multiline response messages          | 4      |
+| Handling of preliminary and secondary responses  | 4      |
+| Data socket setup & port selection               | 3      |
+| Data Socket cleanup                              | 2      |
+| Use of multiple threads                          | 4      |
+| Remote directory listing (`ls`)                  | 3      |
+| Changing remote directory (`cwd`)                | 2      |
+| Downloading files (`get`)                        | 5      |
+| Uploading files (`put`)                          | 5      |
+| Disconnect from server (`close`)                 | 2      |
+| Disconnect & exit program (`quit`)               | 2      |
+| Error handling: incorrect user authentication    | 2      |
+| Error handling: unknown FTP server               | 2      |
+| Error handling: downloading non-existing file    | 2      |
+| Error handling: uploading non-existing file      | 2      |
+| Penalty for program crashed/runtime errors       | max -5 |
