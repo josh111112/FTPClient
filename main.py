@@ -16,9 +16,19 @@ def main():
 
     host, port = get_host_port_from_argv(sys.argv)
     print(f"Connecting to {host} on port {port}")
-    ctrl_sock = connect_control(host, port)
+    
+    try:
+        ctrl_sock = connect_control(host, port)
+    except OSError as e:
+        print(f"Error connecting to {host}:{port} -> {e}")
+        return
 
-    # to be polite
-    quit(ctrl_sock)
+    if not login(ctrl_sock):
+        print("Login failed.")
+        quit(ctrl_sock)
+        return
+
+    cmd_loop(ctrl_sock)
+    
 if __name__ == "__main__":
     main()
