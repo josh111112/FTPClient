@@ -82,6 +82,18 @@ def quit(sock: socket):
     finally:
         sock.close()
 
+def help_cmd():
+    print("""Commands:
+      open <host>     - Connect to FTP server
+      user <name>     - Login with username
+      pass <password> - Provide password (if prompted)
+      dir             - List remote directory
+      cd <path>       - Change remote directory
+      get <file>      - Download file
+      put <file>      - Upload file
+      close           - Close connection
+      quit            - Exit program
+      help            - Show this help""")
 def cmd_loop(sock: socket):
     # Command loop: ls, cwd, get, put, close, quit
     print("Commands: ls, cwd <dir>, get <remote> [local], put <local> [remote], close, quit")
@@ -103,6 +115,8 @@ def cmd_loop(sock: socket):
             # Disconnect & exit program
             quit(sock)
             break
+        elif cmd == "help":
+            help_cmd()
         elif cmd == "ls":
             do_list(sock)
         elif cmd == "cwd":
