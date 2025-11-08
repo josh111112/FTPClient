@@ -73,8 +73,7 @@ def quit(sock: socket):
     try:
         send_command(sock, "QUIT")
         # Read the final reply (usually 221 Goodbye)
-        code, msg = read_response(sock)
-        print(f"Server final reply: {code} {msg}")
+        read_response(sock)
 
     except OSError as e:
         # If something goes wrong during QUIT, still close the socket.
@@ -82,20 +81,9 @@ def quit(sock: socket):
     finally:
         sock.close()
 
-def help_cmd():
-    print("""Commands:
-      user <name>     - Login with username
-      pass <password> - Provide password (if prompted)
-      dir             - List remote directory
-      cd <path>       - Change remote directory
-      get <file>      - Download file
-      put <file>      - Upload file
-      close           - Close connection
-      quit            - Exit program
-      help            - Show this help message""")
 def cmd_loop(sock: socket):
     # Command loop: ls, cwd, get, put, close, quit
-    print("Commands: help, ls, cwd <dir>, get <remote> [local], put <local> [remote], close, quit")
+    print("Commands: ls, cwd <dir>, get <remote> [local], put <local> [remote], close, quit")
     while True:
         try:
             line = input("ftp> ").strip()
@@ -114,8 +102,6 @@ def cmd_loop(sock: socket):
             # Disconnect & exit program
             quit(sock)
             break
-        elif cmd == "help":
-            help_cmd()
         elif cmd == "ls":
             do_list(sock)
         elif cmd == "cwd":
